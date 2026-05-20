@@ -1,0 +1,56 @@
+object: Leads
+
+table:
+  schema: project_bronze
+  name: Leads
+  description: This dataset describes individual prospective customer leads, detailing
+    their contact information, associated company, the date of their acquisition,
+    and their current status within a sales or marketing lifecycle, representing a
+    core component of a lead management system.
+  primary_keys:
+  - contact_id
+  partition_keys: []
+  scd_type: APPEND
+  change_data_feed: false
+
+storage:
+  format: delta
+  external: false
+  s3_bucket: null
+
+governance:
+  data_classification: cus_sensitive
+  contains_pii: false
+  column_masking: false
+  tags:
+  - SMB
+columns:
+
+- name: lead_id
+  type: long
+  nullable: true
+
+- name: first_name
+  type: string
+  nullable: true
+
+- name: last_name
+  type: string
+  nullable: true
+
+- name: email
+  type: string
+  nullable: true
+
+- name: company
+  type: string
+  nullable: true
+
+- name: lead_status
+  type: string
+  nullable: true
+
+- name: date_acquired
+  type: date
+  nullable: true
+  format: d/M/yyyy

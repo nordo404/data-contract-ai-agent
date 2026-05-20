@@ -1,0 +1,51 @@
+# This is a yaml for some sample data
+
+object: sample_table
+
+table:
+  schema: project_bronze
+  name: sample_table
+  description: >
+    Input data from sample_table for project
+
+  primary_keys:
+    - contact_id
+
+  partition_keys: []
+
+  scd_type: APPEND
+  change_data_feed: false
+
+storage:
+  format: delta
+  external: false
+  s3_bucket:
+
+governance:
+  data_classification: cus_sensitive
+  contains_pii: false
+  column_masking: false
+  tags:
+    - SMB
+
+columns:
+  - name: contact_id
+    type: long
+    nullable: false
+
+  - name: first_name
+    type: string
+    nullable: true
+
+  - name: last_name
+    type: string
+    nullable: true
+
+  - name: dob
+    type: date
+    nullable: true
+    format: d/M/yyyy
+
+  - name: last_updated
+    type: timestamp
+    nullable: true

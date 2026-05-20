@@ -1,0 +1,75 @@
+object: leads_ordered
+
+table:
+  schema: project_bronze
+  name: leads_ordered
+  description: This dataset captures the complete lifecycle of sales leads, detailing
+    individual contact information, their qualification and conversion status, and
+    the eventual association with a customer record, reflecting a core lead management
+    process within a CRM system.
+  primary_keys:
+  - contact_id
+  partition_keys: []
+  scd_type: APPEND
+  change_data_feed: false
+
+storage:
+  format: delta
+  external: false
+  s3_bucket: null
+
+governance:
+  data_classification: cus_sensitive
+  contains_pii: false
+  column_masking: false
+  tags:
+  - SMB
+columns:
+
+- name: lead_id
+  type: long
+  nullable: true
+
+- name: customer_id
+  type: long
+  nullable: true
+
+- name: first_name
+  type: string
+  nullable: true
+
+- name: last_name
+  type: string
+  nullable: true
+
+- name: email
+  type: string
+  nullable: true
+
+- name: phone
+  type: string
+  nullable: true
+
+- name: lead_score
+  type: long
+  nullable: true
+
+- name: is_converted
+  type: boolean
+  nullable: true
+
+- name: is_qualified
+  type: boolean
+  nullable: true
+
+- name: created_at
+  type: string
+  nullable: true
+
+- name: updated_at
+  type: string
+  nullable: true
+
+- name: deleted_at
+  type: string
+  nullable: true
