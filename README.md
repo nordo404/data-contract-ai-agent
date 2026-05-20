@@ -11,6 +11,7 @@ A Python-based data processing tool that infers schemas, generates YAML data con
 - Supports both rule-based and LLM-based schema inference
 
 ## Project Structure
+```
 data-contract-ai-agent/
 │
 ├── data/               # Input CSV files
@@ -24,7 +25,7 @@ data-contract-ai-agent/
 ├── main.py             # Entry point for running the agent
 ├── requirements.txt    # Python dependencies
 └── README.md
-
+```
 
 ## Requirements
 - Python 3.10+
